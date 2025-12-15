@@ -106,81 +106,20 @@
         }
 
         /* --- HERO SECTION --- */
-        .hero {
-            position: relative;
-            height: 90vh; 
-            background-color: var(--accent-color);
-            overflow: hidden;
-        }
+       <header class="hero">
+    <!-- ẢNH HERO – gọi đúng tên file bạn đã upload -->
+    <img src="hero.jpg.JPG" alt="Hoa Phượng & Quang Duy" class="hero-img">
 
-        .hero-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            
-            /* --- HÌNH 1: CẶP ĐÔI (Đã đổi tên file thành hero.JPG) --- */
-            background-image: url('hero.jpg.JPG'); 
-            
-            /* Canh chỉnh vị trí ảnh để thấy rõ cặp đôi và tháp chuông */
-            background-position: center center;
-            background-size: cover;
-        }
-
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            /* Gradient đen mờ dần từ dưới lên để chữ trắng dễ đọc */
-            background: linear-gradient(to bottom, 
-                transparent 0%, 
-                transparent 60%, 
-                rgba(93, 110, 88, 0.9) 90%, 
-                rgba(93, 110, 88, 1) 100%
-            );
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            align-items: center;
-            padding-bottom: 4rem;
-            text-align: center;
-            color: white;
-        }
-
-        .hero-names {
-            font-size: 2.5rem;
-            line-height: 1.1;
-            margin-bottom: 10px;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
-        }
-
-        .hero-date {
-            font-size: 1.1rem;
-            letter-spacing: 0.2em;
-            font-family: var(--font-sans);
-            text-transform: uppercase;
-            border-top: 1px solid rgba(255,255,255,0.6);
-            border-bottom: 1px solid rgba(255,255,255,0.6);
-            padding: 8px 0;
-            margin-top: 10px;
-            text-shadow: 0 1px 5px rgba(0,0,0,0.3);
-        }
-
-        /* --- PAPER TEAR EFFECT --- */
-        .paper-edge-top {
-            width: 100%;
-            height: 30px;
-            background-color: var(--paper-color);
-            mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 20' preserveAspectRatio='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 20 L0 10 Q2 5 5 10 T10 10 T15 10 T20 10 T25 10 T30 10 T35 10 T40 10 T45 10 T50 10 T55 10 T60 10 T65 10 T70 10 T75 10 T80 10 T85 10 T90 10 T95 10 T100 10 L100 20 Z' fill='black'/%3E%3C/svg%3E");
-            -webkit-mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 20' preserveAspectRatio='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 20 L0 0 Q2 10 5 5 T10 5 T15 5 T20 5 T25 5 T30 5 T35 5 T40 5 T45 5 T50 5 T55 5 T60 5 T65 5 T70 5 T75 5 T80 5 T85 5 T90 5 T95 5 T100 5 L100 20 Z' fill='black'/%3E%3C/svg%3E");
-            mask-size: 100% 100%;
-            -webkit-mask-size: 100% 100%;
-            margin-top: -28px;
-            position: relative;
-            z-index: 2;
-        }
-        
+    <div class="hero-overlay fade-in">
+        <p style="text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; margin-bottom: 10px;">
+            Wedding Invitation
+        </p>
+        <h1 class="hero-names">
+            Hoa Phượng<br>&<br>Quang Duy
+        </h1>
+        <div class="hero-date">31 · 12 · 2025</div>
+    </div>
+</header>
         /* --- SECTIONS --- */
         .content-card {
             background: var(--paper-color);
@@ -498,6 +437,52 @@
             </div>
         </section>
 
+        <section class="content-card fade-in">
+    <h3 class="section-title">Xác Nhận Tham Dự</h3>
+
+    <form action="https://formspree.io/f/xzznqdzo" method="POST" style="max-width: 360px; margin: 0 auto;">
+
+        <label class="info-label">Họ và tên</label>
+        <input type="text" name="Tên" required
+               style="width:100%;padding:10px;margin-bottom:12px;">
+
+        <label class="info-label">Số điện thoại</label>
+        <input type="tel" name="SĐT" required
+               style="width:100%;padding:10px;margin-bottom:12px;">
+
+        <label class="info-label">Người đi cùng</label>
+        <input type="text" name="Người đi cùng"
+               style="width:100%;padding:10px;margin-bottom:12px;">
+
+        <label class="info-label">Số lượng người lớn</label>
+        <input type="number" name="Số người lớn" min="0"
+               style="width:100%;padding:10px;margin-bottom:12px;">
+
+        <label class="info-label">Số lượng trẻ em</label>
+        <input type="number" name="Số trẻ em" min="0"
+               style="width:100%;padding:10px;margin-bottom:12px;">
+
+        <label class="info-label">Chiều cao & tuổi của trẻ em</label>
+        <textarea name="Chiều cao & tuổi trẻ em"
+                  placeholder="Ví dụ: Bé A – 110cm – 4 tuổi"
+                  style="width:100%;padding:10px;margin-bottom:18px;"></textarea>
+
+        <button type="submit"
+                style="
+                  width:100%;
+                  padding:12px;
+                  background:var(--accent-color);
+                  color:white;
+                  border:none;
+                  font-weight:600;
+                  letter-spacing:1px;
+                ">
+            GỬI XÁC NHẬN
+        </button>
+    </form>
+</section>
+
+
         <!-- CONTACT & FOOTER -->
         <footer class="footer fade-in">
             <h2 style="font-family: var(--font-serif); font-size: 2rem; margin-bottom: 1rem;">Thank You</h2>
@@ -536,3 +521,4 @@
 
 
 </html>
+

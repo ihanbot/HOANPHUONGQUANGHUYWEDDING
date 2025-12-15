@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lễ Cưới | Hoa Phượng & Quang Duy</title>
+    
+    <!-- Google Fonts for Editorial Look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- RESET & VARIABLES --- */
+        :root {
+            --bg-color: #F7F5F0; /* Soft Sand */
+            --paper-color: #FFFFFF;
+            --accent-color: #5D6E58; /* Sage Green */
+            --text-color: #333333;
+            --gold-color: #B09B73;
+            --font-serif: 'Cormorant Garamond', serif;
+            --font-sans: 'Montserrat', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #e6e2dd;
+            font-family: var(--font-sans);
+            color: var(--text-color);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- CONTAINER (Mobile First Design) --- */
+        .wrapper {
+            max-width: 480px; /* Limits width to look like a mobile app/card */
+            margin: 0 auto;
+            background-color: var(--bg-color);
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* --- TYPOGRAPHY --- */
+        h1, h2, h3, h4 {
+            font-family: var(--font-serif);
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .cursive-title {
+            font-family: var(--font-serif);
+            font-style: italic;
+            text-transform: none;
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 40px;
+            height: 1px;
+            background: var(--gold-color);
+            margin: 10px auto 0;
+        }
+
+        p {
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            color: #555;
+        }
+
+        /* --- UTILITIES --- */
+        .text-center { text-align: center; }
+        .gold-text { color: var(--gold-color); }
+        .bold { font-weight: 600; }
+        .mt-2 { margin-top: 2rem; }
+        .mb-2 { margin-bottom: 2rem; }
+
+        /* --- ANIMATIONS --- */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            position: relative;
+            height: 90vh; 
+            background-color: var(--accent-color);
+            overflow: hidden;
+        }
+
+        .hero-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            
+            /* --- HÌNH 1: CẶP ĐÔI (Đã đổi tên file thành hero.JPG) --- */
+            background-image: url('hero.jpg.JPG'); 
+            
+            /* Canh chỉnh vị trí ảnh để thấy rõ cặp đôi và tháp chuông */
+            background-position: center center;
+            background-size: cover;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Gradient đen mờ dần từ dưới lên để chữ trắng dễ đọc */
+            background: linear-gradient(to bottom, 
+                transparent 0%, 
+                transparent 60%, 
+                rgba(93, 110, 88, 0.9) 90%, 
+                rgba(93, 110, 88, 1) 100%
+            );
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            padding-bottom: 4rem;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-names {
+            font-size: 2.5rem;
+            line-height: 1.1;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .hero-date {
+            font-size: 1.1rem;
+            letter-spacing: 0.2em;
+            font-family: var(--font-sans);
+            text-transform: uppercase;
+            border-top: 1px solid rgba(255,255,255,0.6);
+            border-bottom: 1px solid rgba(255,255,255,0.6);
+            padding: 8px 0;
+            margin-top: 10px;
+            text-shadow: 0 1px 5px rgba(0,0,0,0.3);
+        }
+
+        /* --- PAPER TEAR EFFECT --- */
+        .paper-edge-top {
+            width: 100%;
+            height: 30px;
+            background-color: var(--paper-color);
+            mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 20' preserveAspectRatio='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 20 L0 10 Q2 5 5 10 T10 10 T15 10 T20 10 T25 10 T30 10 T35 10 T40 10 T45 10 T50 10 T55 10 T60 10 T65 10 T70 10 T75 10 T80 10 T85 10 T90 10 T95 10 T100 10 L100 20 Z' fill='black'/%3E%3C/svg%3E");
+            -webkit-mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 20' preserveAspectRatio='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 20 L0 0 Q2 10 5 5 T10 5 T15 5 T20 5 T25 5 T30 5 T35 5 T40 5 T45 5 T50 5 T55 5 T60 5 T65 5 T70 5 T75 5 T80 5 T85 5 T90 5 T95 5 T100 5 L100 20 Z' fill='black'/%3E%3C/svg%3E");
+            mask-size: 100% 100%;
+            -webkit-mask-size: 100% 100%;
+            margin-top: -28px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* --- SECTIONS --- */
+        .content-card {
+            background: var(--paper-color);
+            padding: 3rem 2rem;
+            margin: 0;
+        }
+
+        .quote-box {
+            padding: 2rem;
+            border-left: 2px solid var(--gold-color);
+            margin: 2rem 0;
+            font-style: italic;
+            background: #fdfbf7;
+        }
+
+        /* --- INFO BLOCKS --- */
+        .info-block {
+            margin-bottom: 2.5rem;
+            border: 1px solid #eee;
+            padding: 1.5rem;
+            border-radius: 4px;
+        }
+
+        .info-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+            display: block;
+            font-weight: 600;
+        }
+
+        .info-highlight {
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            color: var(--text-color);
+            margin-bottom: 0.5rem;
+        }
+
+        /* --- VENUE IMAGE STYLE --- */
+        .venue-img-container {
+            width: 100%;
+            margin-bottom: 1.5rem;
+            border-radius: 8px; /* Bo góc mềm mại */
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Đổ bóng nhẹ */
+        }
+        
+        .venue-img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* --- TIMELINE --- */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+            margin-top: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: var(--gold-color);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -27px;
+            top: 5px;
+            width: 15px;
+            height: 15px;
+            background: var(--bg-color);
+            border: 2px solid var(--gold-color);
+            border-radius: 50%;
+        }
+
+        .timeline-time {
+            font-weight: 700;
+            color: var(--accent-color);
+            font-size: 0.9rem;
+        }
+
+        .timeline-title {
+            font-family: var(--font-serif);
+            font-size: 1.2rem;
+        }
+
+        .day-header {
+            background: var(--accent-color);
+            color: white;
+            padding: 5px 15px;
+            display: inline-block;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+            margin-left: -30px; 
+            width: calc(100% + 30px);
+        }
+
+        /* --- NOTES ICONS --- */
+        .notes-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            text-align: center;
+            margin-top: 1rem;
+        }
+        .note-item {
+            font-size: 0.8rem;
+            padding: 10px;
+            background: #f9f9f9;
+            border-radius: 4px;
+        }
+
+        /* --- FOOTER --- */
+        .footer {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .footer p {
+            color: rgba(255,255,255,0.8);
+        }
+
+        .contact-btn {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 10px 25px;
+            border: 1px solid rgba(255,255,255,0.5);
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .contact-btn:hover {
+            background: white;
+            color: var(--accent-color);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+        
+        <!-- HERO -->
+        <header class="hero">
+            <div class="hero.jpg.JPG"></div>
+            <div class="hero-overlay fade-in">
+                <p style="text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; margin-bottom: 10px;">Wedding Invitation</p>
+                <h1 class="hero-names">Hoa Phượng<br>&<br>Quang Duy</h1>
+                <div class="hero-date">31 · 12 · 2025</div>
+            </div>
+        </header>
+
+        <div class="paper-edge-top"></div>
+
+        <!-- INTRO -->
+        <section class="content-card text-center fade-in">
+            <h2 class="cursive-title">Wedding Day</h2>
+            <div class="quote-box">
+                "Trở thành khoảnh khắc chúng ta ghi nhớ.<br>
+                Chúng tôi trân trọng mời bạn đến chung vui và chứng kiến khoảnh khắc hai chúng tôi chính thức về chung một hành trình."
+            </div>
+            
+            <p>Trân trọng kính mời</p>
+            <p class="bold" style="font-size: 1.1rem;">Gia đình và bạn bè thân yêu</p>
+            <p>Sự hiện diện của bạn là niềm vinh hạnh lớn trong ngày trọng đại của chúng tôi.</p>
+        </section>
+
+        <!-- WEDDING LOCATION -->
+        <section class="content-card fade-in">
+            <h3 class="section-title">Lễ Cưới & Tiệc</h3>
+            
+            <!-- HÌNH 2: BÃI BIỂN (Đã đổi tên file thành venue.jpg) -->
+            <div class="venue-img-container">
+                <img src="venue.jpg" alt="Aloha Beach Club Wedding Setup" class="venue-img">
+            </div>
+
+            <div class="text-center">
+                <span class="info-label">Địa điểm</span>
+                <h2 style="font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--accent-color);">Aloha Beach Club</h2>
+                <p>Novaworld Phan Thiết</p>
+                <div style="display: flex; justify-content: center; gap: 2rem; margin-top: 1.5rem;">
+                    <div>
+                        <span class="info-label">Lễ Cưới</span>
+                        <div class="bold" style="font-size: 1.2rem;">16:00</div>
+                    </div>
+                    <div>
+                        <span class="info-label">Tiệc Cưới</span>
+                        <div class="bold" style="font-size: 1.2rem;">17:30</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TIMELINE -->
+        <section class="content-card fade-in" style="background-color: #fff;">
+            <h3 class="section-title">Chương Trình</h3>
+             <p> Xuất phát từ HCM: 7:30 tập trung ở 96 Võ Thành Trang, P. Bảy Hiền,<br>TP. Hồ Chí Minh</p>
+                <hr style="border: 0; border-top: 1px solid #eee; margin: 10px 0;">
+            
+            <div class="timeline">
+                <!-- Day 1 -->
+                <div class="day-header">Ngày 31/12/2025</div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-time">08:00</div>
+                    <div class="timeline-title">Xuất phát đi Phan Thiết </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-time">12:0</div>
+                    <div class="timeline-title">Tập trung tại Phan Thiết  </div>
+                </div>
+
+
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-time">12:0</div>
+                    <div class="timeline-title">Ăn trưa</div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-time">14:00</div>
+                    <div class="timeline-title">Nhận phòng & Nghỉ ngơi</div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-time">15:30</div>
+                    <div class="timeline-title">Đón khách</div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot" style="background: var(--accent-color);"></div>
+                    <div class="timeline-time">16:00 - 17:00</div>
+                    <div class="timeline-title bold" style="color: var(--accent-color);">LỄ CƯỚI</div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot" style="background: var(--accent-color);"></div>
+                    <div class="timeline-time">17:30</div>
+                    <div class="timeline-title bold" style="color: var(--accent-color);">TIỆC CƯỚI</div>
+                </div>
+
+                <!-- Day 2 -->
+                <div class="day-header" style="margin-top: 2rem;">Ngày hôm sau</div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-time">07:30</div>
+                    <div class="timeline-title">Ăn sáng</div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-time">11:00</div>
+                    <div class="timeline-title">Check-out</div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-time">13:30</div>
+                    <div class="timeline-title">Trở về TP.HCM</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ACCOMMODATION & NOTES -->
+        <section class="content-card fade-in" style="background-color: #F7F5F0;">
+            <div class="info-block" style="background: white; border-color: transparent; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                <h3 class="section-title" style="font-size: 1.5rem;">Lưu Trú</h3>
+                <div class="text-center">
+                    <p class="bold" style="font-size: 1.1rem; color: var(--accent-color);">Villa LFP</p>
+                    <p>Khu Biệt thự Florida<br>Novaworld Phan Thiết</p>
+                </div>
+            </div>
+
+            <div class="mt-2">
+                <h4 class="text-center" style="font-family: var(--font-sans); font-size: 0.9rem; letter-spacing: 2px;">LƯU Ý NHỎ</h4>
+                <div class="notes-grid">
+                    <div class="note-item">
+                        👗<br>Trang phục thoải mái
+                    </div>
+                    <div class="note-item">
+                        👡<br>Ưu tiên giày thấp/sandal
+                    </div>
+                    <div class="note-item">
+                        ❌<br>Không yêu cầu Dress Code
+                    </div>
+                    <div class="note-item">
+                        🛺<br>Xe điện: 08:00 - 18:00
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT & FOOTER -->
+        <footer class="footer fade-in">
+            <h2 style="font-family: var(--font-serif); font-size: 2rem; margin-bottom: 1rem;">Thank You</h2>
+            <p style="margin-bottom: 2rem;">Một ngày trọng đại sẽ không trọn vẹn<br>nếu thiếu sự hiện diện của bạn.</p>
+            
+            <div style="border-top: 1px solid rgba(255,255,255,0.3); padding-top: 2rem; margin-bottom: 2rem;">
+                <p style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">Liên hệ hỗ trợ</p>
+                <p style="font-size: 1.2rem; font-weight: 600;">Ms Hân</p>
+                <a href="tel:0896108138" class="contact-btn">0896 108 138</a>
+            </div>
+
+            <p style="font-size: 0.8rem; font-style: italic;">Hoa Phượng & Quang Duy</p>
+        </footer>
+
+    </div>
+
+    <script>
+        // Simple Intersection Observer for fade-in animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            document.querySelectorAll('.fade-in').forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+
+</html>
